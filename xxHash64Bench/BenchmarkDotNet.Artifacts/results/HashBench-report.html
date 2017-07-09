@@ -23,11 +23,15 @@ dotnet cli version=2.0.0-preview2-006497
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>Method</th><th>dataSizeBytes</th><th>      Mean</th><th>  Error</th><th> StdDev</th>
 </tr>
-</thead><tbody><tr><td>Sha256</td><td>5.721 us</td><td>0.0302 us</td><td>0.0267 us</td>
-</tr><tr><td>Md5</td><td>2.500 us</td><td>0.0102 us</td><td>0.0095 us</td>
-</tr><tr><td>xxH</td><td>2.194 us</td><td>0.0156 us</td><td>0.0145 us</td>
+</thead><tbody><tr><td>xxHash64</td><td>   1073</td><td>  2.215 us</td><td>0.0078 us</td><td>0.0073 us</td>
+</tr><tr><td>xxHash64</td><td>  10737</td><td> 19.021 us</td><td>0.0625 us</td><td>0.0585 us</td>
+</tr><tr><td>xxHash64</td><td> 107374</td><td>186.177 us</td><td>0.7968 us</td><td>0.7453 us</td>
+</tr><tr><td>xxHash64</td><td>1073741</td><td>1,849.961 us</td><td>7.2826 us</td><td>6.8121 us</td>
+</tr><tr><td>xxHash64</td><td>10737418</td><td>18,621.881 us</td><td>62.7286 us</td><td>58.6764 us</td>
+</tr><tr><td>xxHash64</td><td>107374182</td><td>186,785.877 us</td><td>614.1825 us</td><td>574.5067 us</td>
+</tr><tr><td>xxHash64</td><td>1073741824</td><td>1,859,136.249 us</td><td>1,594.9764 us</td><td>1,331.8774 us</td>
 </tr></tbody></table>
 </body>
 </html>

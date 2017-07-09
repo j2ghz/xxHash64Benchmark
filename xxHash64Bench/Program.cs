@@ -3,32 +3,25 @@ using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using System.Data.HashFunction;
+using System.Threading.Tasks;
 
 namespace xxHash64Bench
 {
     public class HashBench
     {
-        [Params(1024, 1024*1024, 1024*1024*1024)]
-        public int N { get; set; }
+        [Params(1073, 10737, 107374, 1073741, 10737418, 107374182, 1073741824)]
+        public int dataSizeBytes { get; set; }
 
         private byte[] data;
 
-        private readonly SHA256 sha256 = SHA256.Create();
-        private readonly xxHash xxH32 = new xxHash(32);
         private readonly xxHash xxH64 = new xxHash(64);
 
         [GlobalSetup]
         public void GlobalSetup()
         {
-            data = new byte[N];
+            data = new byte[dataSizeBytes];
             new Random(42).NextBytes(data);
         }
-
-        [Benchmark(Baseline = true)]
-        public byte[] Sha256() => sha256.ComputeHash(data);
-
-        [Benchmark]
-        public byte[] xxHash32() => xxH32.ComputeHash(data).Hash;
 
         [Benchmark]
         public byte[] xxHash64() => xxH64.ComputeHash(data).Hash;
